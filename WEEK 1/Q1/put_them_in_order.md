@@ -95,9 +95,11 @@ n^(log₂ n)
 ## Repository Structure
 
 ```text
-WEEK 1/
-├── growth.c
+Q1/
+├── Picture1.png
+├── Picture2.png
+├── Picture3.png
 ├── growth.csv
-├── graphs.png
-└── README.md
+├── put_them_in_order.c
+└── put_them_in_order.md
 ```
