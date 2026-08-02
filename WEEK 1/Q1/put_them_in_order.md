@@ -2,54 +2,48 @@
 
 ## Objective
 
-Determine the increasing order of growth of the given functions for sufficiently large values of \(n\) and verify the result graphically.
+Determine the increasing order of growth of the given functions for sufficiently large values of **n** and verify the result graphically.
 
 ---
 
 ## Functions Considered
 
-- \( \frac{1}{n} \)
-- \( \log_2 n \)
-- \( 12\sqrt{n} \)
-- \( 50n^{0.5} \)
-- \( n^{0.51} \)
-- \( 2^{32}n \)
-- \( n\log_2 n \)
-- \( 100n^2 + 6n \)
-- \( n^2 - 324 \)
-- \( 2n^3 \)
-- \( n^{\log_2 n} \)
-- \( 3^n \)
+- 1/n
+- log₂(n)
+- 12√n
+- 50√n
+- n^0.51
+- 2³² × n
+- n log₂(n)
+- 100n² + 6n
+- n² − 324
+- 2n³
+- n^(log₂ n)
+- 3ⁿ
 
 ---
 
 ## Implementation
 
-The program `growth.c` evaluates the above functions for
+The program `growth.c` evaluates the above functions for the following values of **n**:
 
+```text
+2, 4, 8, 16, 32, 64, 128, 256, 512, 1024
 ```
-n = 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024
-```
 
-To make functions with vastly different growth rates comparable, the program computes
+Instead of plotting the raw function values, the program computes **log₂(f(n))** for every function. Using logarithmic values compresses the scale, making functions with vastly different growth rates easier to compare visually.
 
-\[
-\log_2(f(n))
-\]
-
-instead of the raw function values.
-
-The computed values are stored in `growth.csv`.
+The computed values are written to `growth.csv`.
 
 ---
 
 ## Graphs
 
-The data in `growth.csv` was imported into Microsoft Excel to generate the graphs.
+The generated `growth.csv` file was imported into Microsoft Excel to create the graphs.
 
-Since some functions (particularly \(3^n\) and \(n^{\log_2 n}\)) grow much faster than the others, displaying all functions on a single graph makes the remaining curves difficult to observe.
+Since some functions (especially **3ⁿ** and **n^(log₂ n)**) grow much faster than the others, plotting all functions on a single graph makes the smaller-growth functions difficult to distinguish.
 
-Therefore, the functions have been divided into **four graphs** for improved readability. All four graphs are generated from the same dataset and together represent all the given functions.
+To improve readability, the functions have been divided into **four separate graphs**. These graphs are then combined into a **single image** (`graphs.png`) so that all functions can be viewed together while remaining clearly visible.
 
 ---
 
@@ -57,8 +51,8 @@ Therefore, the functions have been divided into **four graphs** for improved rea
 
 | File | Description |
 |------|-------------|
-| `growth.c` | C program used to generate the data |
-| `growth.csv` | Generated data for plotting |
+| `growth.c` | C program that generates the dataset |
+| `growth.csv` | Generated data used for plotting |
 | `graphs.png` | Combined image containing the four graphs |
 | `README.md` | Documentation for Question 1 |
 
@@ -66,36 +60,44 @@ Therefore, the functions have been divided into **four graphs** for improved rea
 
 ## Final Order of Growth
 
-\[
-\frac1n
+```text
+1/n
 <
-\log_2 n
+log₂(n)
 <
-12\sqrt n
-=
-50n^{0.5}
+12√n = 50√n
 <
-n^{0.51}
+n^0.51
 <
-2^{32}n
+2³² × n
 <
-n\log_2 n
+n log₂(n)
 <
-100n^2+6n
-=
-n^2-324
+100n² + 6n = n² − 324
 <
-2n^3
+2n³
 <
-n^{\log_2 n}
+n^(log₂ n)
 <
-3^n
-\]
+3ⁿ
+```
 
 ---
 
 ## Observations
 
 - Constant multipliers do not affect asymptotic growth.
-- Lower-order terms are ignored for sufficiently large values of \(n\).
-- The generated graphs visually confirm the theoretical ordering of the functions.
+- Lower-order terms do not affect the asymptotic order for sufficiently large values of **n**.
+- The generated graphs visually support the theoretical ordering of the functions.
+
+---
+
+## Repository Structure
+
+```text
+WEEK 1/
+├── growth.c
+├── growth.csv
+├── graphs.png
+└── README.md
+```
