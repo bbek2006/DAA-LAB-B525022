@@ -58,7 +58,7 @@ The generated `moves.csv` file was imported into **Microsoft Excel** to create t
 
 ### Number of Moves vs Number of Disks
 
-![Tower of Hanoi Graph](graph of recursive algorithm.png)
+![Tower of Hanoi Graph](graph%20of%20recurssive%20algorithm.png)
 
 ---
 
