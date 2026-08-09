@@ -92,7 +92,7 @@ Two plots are generated:
 
 ### Graphs
 
-![Merging k Sorted Arrays](graph.png)
+![Merging k Sorted Arrays](graphs.png)
 
 ---
 
