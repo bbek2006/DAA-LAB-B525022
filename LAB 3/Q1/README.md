@@ -1,5 +1,13 @@
 # Binary vs Ternary Search (C)
 
+## Problem Statement
+
+Binary vs Ternary Search: In binary search, an ( n )-element list is divided into nearly two equal halves, while in ternary search, it is divided into nearly three equal intervals. The search is then performed in one of these intervals.
+
+Design and implement a C program to search for an element ( x ) in a sorted list of size ( n ) using both binary and ternary search. Justify and validate that binary search is better than ternary search via your implementation.
+
+---
+
 ## Time Complexity Derivation
 
 ### Binary Search
@@ -92,7 +100,8 @@ Binary search is faster due to fewer comparisons.
 
 ## Key Note
 
-* GitHub does NOT render LaTeX properly.
-* Binary Search is asymptotically similar but practically faster due to a smaller constant factor.
+* Both algorithms have logarithmic complexity
+* Binary search is asymptotically similar but practically faster due to a smaller constant factor
+* Binary search is preferred in real-world implementations
 
 
