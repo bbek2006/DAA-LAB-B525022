@@ -92,7 +92,7 @@ Binary search is faster due to fewer comparisons.
 
 ## Key Note
 
-* GitHub does NOT render LaTeX properly
-* Use plain math formatting for best readability
+* GitHub does NOT render LaTeX properly.
+* Binary Search is asymptotically similar but practically faster due to a smaller constant factor.
 
 
