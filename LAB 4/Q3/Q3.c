@@ -1,131 +1,51 @@
-## Problem
+#include <stdio.h>
+#include <stdlib.h>
 
-Given a set **S** of *n* integers and an integer **T**, determine whether there exist **k elements** such that:
+// Comparator for qsort
+int compare(const void *a, const void *b) {
+    return (*(int*)a - *(int*)b);
+}
 
-```
-a₁ + a₂ + ... + a_k = T
-```
+// Two-pointer for 2-sum
+int twoSum(int arr[], int left, int right, int target) {
+    while (left < right) {
+        int sum = arr[left] + arr[right];
+        if (sum == target)
+            return 1;
+        else if (sum < target)
+            left++;
+        else
+            right--;
+    }
+    return 0;
+}
 
----
+// k-sum recursive function
+int kSum(int arr[], int n, int start, int k, int target) {
+    if (k == 2) {
+        return twoSum(arr, start, n - 1, target);
+    }
 
-## Key Idea
+    for (int i = start; i < n - k + 1; i++) {
+        if (kSum(arr, n, i + 1, k - 1, target - arr[i]))
+            return 1;
+    }
+    return 0;
+}
 
-This is a generalization of:
+int main() {
+    int arr[] = {1, 2, 3, 4, 5};
+    int n = 5;
+    int k = 3;
+    int T = 9;
 
-* 2-sum
-* 3-sum
-* k-sum
+    // Sort array
+    qsort(arr, n, sizeof(int), compare);
 
-We solve it using:
+    if (kSum(arr, n, 0, k, T))
+        printf("Exists\n");
+    else
+        printf("Does not exist\n");
 
-* **Sorting**
-* **Recursion (reduce k → k-1)**
-* **Two-pointer technique for base case (k = 2)**
-
----
-
-## Approach
-
-1. Sort the array → O(n log n)
-2. Fix one element and recursively solve (k-1)-sum on remaining elements
-3. Base case:
-
-   * When k = 2 → use **two-pointer technique** in O(n)
-
----
-
-## Algorithm
-
-### kSum(arr, n, k, T):
-
-* If k == 2:
-
-  * Use two pointers (left, right)
-  * Check if pair sums to T
-* Else:
-
-  * For each element arr[i]:
-
-    * Recursively call:
-
-      ```
-      kSum(arr[i+1...], k-1, T - arr[i])
-      ```
-
----
-
-## Time Complexity
-
-Recurrence:
-
-```
-T(n, k) = n * T(n, k-1)
-```
-
-Base case:
-
-```
-T(n, 2) = O(n)
-```
-
-Final:
-
-```
-O(n^(k-1))
-```
-
-Including sorting:
-
-```
-O(n^(k-1) + n log n) ≈ O(n^(k-1))
-```
-
----
-
-## Space Complexity
-
-* Recursive stack: **O(k)**
-
----
-
-## Example
-
-### Input
-
-```
-S = {1, 2, 3, 4, 5}
-k = 3
-T = 9
-```
-
-### Output
-
-```
-Exists
-```
-
-### Explanation
-
-```
-2 + 3 + 4 = 9
-```
-
----
-
-## Why This Works
-
-* Sorting enables efficient two-pointer search
-* Reduces k-sum to (k-1)-sum recursively
-* Avoids brute-force O(n^k)
-
----
-
-## Conclusion
-
-Efficient k-sum solution using:
-
-* Sorting
-* Recursion
-* Two-pointer optimization
-
-Scales much better than naive approach for moderate k.
+    return 0;
+}
